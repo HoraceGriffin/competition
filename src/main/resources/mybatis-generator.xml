@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE generatorConfiguration
+        PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
+        "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+
+<generatorConfiguration>
+
+    <context id="MySql" defaultModelType="flat" targetRuntime="MyBatis3">
+        <!-- 指定生成的java文件的编码,没有直接生成到项目时中文可能会乱码 -->
+        <property name="javaFileEncoding" value="UTF-8"/>
+
+        <plugin type="org.mybatis.generator.plugins.SerializablePlugin"/>
+        <!--        <commentGenerator>-->
+        <!--            &lt;!&ndash;  关闭自动生成的注释  &ndash;&gt;-->
+        <!--            <property name="suppressAllComments" value="true" />-->
+        <!--        </commentGenerator>-->
+
+        <commentGenerator type="com.zcxy.config.mybatisGenerator.MySQLCommentGenerator">
+            <property name="author" value="Michael Chow"/>
+            <property name="dateFormat" value="yyyy/MM/dd"/>
+        </commentGenerator>
+
+        <jdbcConnection
+                driverClass="com.mysql.jdbc.Driver"
+                connectionURL="jdbc:mysql://127.0.0.1/project"
+                userId="root"
+                password="root">
+            <property name="nullCatalogMeansCurrent" value="true"/>
+        </jdbcConnection>
+
+        <javaModelGenerator targetPackage="com.zcxy.entity" targetProject="src/main/java"/>
+
+        <sqlMapGenerator targetPackage="mapper" targetProject="src/main/resources"/>
+
+        <javaClientGenerator targetPackage="com.zcxy.mapper" targetProject="src/main/java"
+                             type="XMLMAPPER"/>
+
+        <table tableName="">
+            <generatedKey column="id" sqlStatement="SELECT LAST_INSERT_ID() as id" type="post"
+                          identity="true"/>
+        </table>
+
+    </context>
+
+
+</generatorConfiguration>

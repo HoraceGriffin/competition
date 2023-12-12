@@ -1,0 +1,53 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <link rel="stylesheet" href="/layui/css/layui.css">
+    <style type="text/css">
+        .layui-input-inline input{
+            border: none;
+        }
+        .layui-input-block textarea{
+            border: none;
+            height: 200px;
+        }
+    </style>
+</head>
+<body>
+<form class="layui-form" style="font-size: 20px;margin-top: 15px">
+    <input type="hidden" name="id" th:value="${announcement.id }" id="id"/>
+    <div class="layui-form-item">
+        <label class="layui-form-label"></label>
+        标题：
+        <span th:text="${announcement.title }"></span>
+    </div>
+
+    <div class="layui-form-item">
+        <label class="layui-form-label"></label>
+        发布时间：
+        <span th:text="${#dates.format(announcement.createTime, 'yyyy-MM-dd')}"></span>
+    </div>
+
+    <div class="layui-form-item">
+        <label class="layui-form-label"></label>
+        类型：
+        <span th:if="${announcement.type==1}" style="color: #da4b3f">系统公告</span>
+        <span th:if="${announcement.type==2}" style="color: #7a9dc0">竞赛通知</span>
+    </div>
+
+    <div class="layui-form-item">
+        <label class="layui-form-label"></label>
+        内容：
+        <span th:text="${announcement.content }"></span>
+    </div>
+
+</form>
+
+<script type="text/javascript" src="/layui/layui.js"></script>
+<script type="text/javascript">
+    layui.use(['layer', 'jquery', 'table', 'laydate'], function () {
+    });
+</script>
+
+</body>
+</html>

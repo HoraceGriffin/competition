@@ -1,0 +1,114 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <link rel="stylesheet" href="/layui/css/layui.css">
+    <link rel="stylesheet" href="/css/list.css" media="all"/>
+    <link rel="stylesheet" href="/css/font.css" media="all"/>
+</head>
+<body class="childrenBody">
+<blockquote class="layui-elem-quote news_search">
+    <form class="layui-form">
+        <div class="layui-inline">
+            <div class="layui-input-inline">
+                <input type="text" id="title" value="" placeholder="请输入标题"
+                       class="layui-input search_input" autocomplete="off">
+            </div>
+            <div class="layui-input-inline">
+                <input type="text" id="publisher" value="" placeholder="请输入发布者姓名"
+                       class="layui-input search_input" autocomplete="off">
+            </div>
+            <div class="layui-input-inline" style="margin-left: 10px">
+                <select name="deptId" class="" id="deptId">
+                    <option value="0">请选择类别</option>
+                    <option value="401">web软件开发</option>
+                    <option value="402">物联网工程</option>
+                    <option value="403">数学类</option>
+                    <option value="404">语言类</option>
+                    <option value="405">心理知识类</option>
+                    <option value="406">物理类</option>
+                    <option value="407">其他</option>
+                </select>
+            </div>
+
+            <div class="layui-inline">
+                <input type="text" id="createTimeStart" class="layui-input"
+                       name="createTimeStart" placeholder="发布时间(开始)" value="">
+            </div>
+            -
+            <div class="layui-inline">
+                <input type="text" id="createTimeEnd" class="layui-input"
+                       name="createTimeEnd" placeholder="发布时间(结束)" value="">
+            </div>
+            <a style="margin-left: 10px" class="layui-btn search_btn" data-type="search" lay-filter="search">查询</a>
+
+
+        </div>
+
+    </form>
+</blockquote>
+
+<div class="layui-form">
+    <table id="competitionList" lay-filter="competitionList"></table>
+</div>
+
+<script type="text/html" id="deptTpl">
+    {{#  if(d.deptId == 401){ }}
+    <span style="color: #4476A7;">web软件开发</span>
+    {{#  } else if(d.deptId == 402){ }}
+    <span style="color: #F581B1;">物联网工程</span>
+    {{#  } else if(d.deptId == 403){ }}
+    <span style="color: #00b83f;">数学类</span>
+    {{#  } else if(d.deptId == 404){ }}
+    <span style="color: #0000FF;">语言类</span>
+    {{#  } else if(d.deptId == 405){ }}
+    <span style="color: #54ade8;">心理知识类</span>
+    {{#  } else if(d.deptId == 406){ }}
+    <span style="color: #cc1df8;">物理类</span>
+    {{#  } else{ }}
+    <span style="color: #000000">其他</span>
+    {{#  } }}
+</script>
+
+
+
+<!--<script type="text/html" id="statusTpl">
+    <input type="checkbox" name="status" value="{{d.id}}" lay-skin="switch" lay-text="正常|截止" lay-filter="statusSwitch"
+           {{ d.status== 1 ? 'checked' : '' }}>
+</script>-->
+
+
+
+<script type="text/html" id="toolbarDemo">
+    <div class="layui-btn-container">
+        <button class="layui-btn layui-btn-sm" lay-event="delCompetitions">批量删除</button>
+       <!-- <button class="layui-btn layui-btn-sm" lay-event="getCheckLength">获取选中数目</button>-->
+        <button class="layui-btn layui-btn-sm" lay-event="reload">刷新表格</button>
+    </div>
+</script>
+
+<script type="text/html" id="barDemo">
+    <a class="layui-btn layui-btn-sm layui-btn" lay-event="details">
+        <i class="layui-icon">&#xe615;</i>
+    </a>
+
+    <a class="layui-btn layui-btn-sm layui-btn-normal" lay-event="edit">
+        <i class="layui-icon">&#xe642;</i>
+    </a>
+
+    <a class="layui-btn layui-btn-sm layui-btn-danger" lay-event="delete">
+        <i class="layui-icon">&#xe640;</i>
+    </a>
+</script>
+
+<script type="text/html" id="picImg">
+    <div>
+        <img src="/upload/{{d.activity_photo}}" alt="" onclick="showBigImage(this)" >
+    </div>
+</script>
+
+<script type="text/javascript" src="/layui/layui.js"></script>
+<script type="text/javascript" src="/js/competition/competitionList.js"></script>
+</body>
+
+</html>

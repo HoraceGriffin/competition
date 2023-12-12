@@ -1,0 +1,100 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <link rel="stylesheet" href="/layui/css/layui.css">
+</head>
+<body>
+<form class="layui-form" style="width: 90%;margin-top: 26px " >
+    <input type="hidden" name="id" th:value="${competition.id }" id="id"/>
+    <div class="layui-form-item">
+        <label class="layui-form-label">标题</label>
+        <div class="layui-input-inline">
+            <input style="width: 501px" type="text" id="title" class="layui-input" name="title" th:value="${competition.title }" autocomplete="off">
+        </div>
+    </div>
+    <div class="layui-form-item">
+        <label class="layui-form-label">发布者</label>
+        <div class="layui-input-inline">
+            <input type="text" name="publisher" id="publisher" class="layui-input" lay-verify="required" th:value="${competition.publisher}" autocomplete="off">
+        </div>
+        <label class="layui-form-label">类别</label>
+        <div class="layui-input-inline">
+            <select name="deptId">
+                <option value="401" th:selected="${competition.deptId}==401?'true':'false'">web软件开发</option>
+                <option value="402" th:selected="${competition.deptId}==402?'true':'false'">物联网工程</option>
+                <option value="403" th:selected="${competition.deptId}==403?'true':'false'">数学类</option>
+                <option value="404" th:selected="${competition.deptId}==404?'true':'false'">语言类</option>
+                <option value="405" th:selected="${competition.deptId}==405?'true':'false'">心理知识类</option>
+                <option value="406" th:selected="${competition.deptId}==406?'true':'false'">物理类</option>
+                <option value="407" th:selected="${competition.deptId}==407?'true':'false'">其他</option>
+            </select>
+        </div>
+    </div>
+
+    <div class="layui-form-item">
+        <label class="layui-form-label">发布时间</label>
+        <div class="layui-input-inline">
+            <input type="type" id="createTime" class="layui-input" autocomplete="off" name="createTime" lay-verify="date"
+                   placeholder="yyyy-MM-dd" th:value="${#dates.format(competition.createTime, 'yyyy-MM-dd')}">
+        </div>
+
+        <label class="layui-form-label">截止时间</label>
+        <div class="layui-input-inline">
+            <input type="type" id="validTime" class="layui-input" autocomplete="off" name="validTime" lay-verify="date"
+                   placeholder="yyyy-MM-dd" th:value="${#dates.format(competition.validTime, 'yyyy-MM-dd')}">
+        </div>
+    </div>
+
+
+    <div class="layui-form-item">
+        <label class="layui-form-label">邮箱</label>
+        <div class="layui-input-inline">
+            <input type="text" name="email" id="email" class="layui-input" lay-verify="email" placeholder="请输入邮箱"
+                   th:value="${competition.email }" autocomplete="off">
+        </div>
+        <label class="layui-form-label">人数</label>
+        <div class="layui-input-inline">
+            <input type="text" name="number" id="number" class="layui-input" lay-verify="number" placeholder="请输入人数"
+                   th:value="${competition.number }" autocomplete="off">
+        </div>
+    </div>
+    <div class="layui-form-item">
+        <label class="layui-form-label">内容</label>
+        <div class="layui-input-block">
+            <textarea name="content" class="layui-textarea" placeholder="请输入内容" th:text="${competition.content }"></textarea>
+        </div>
+    </div>
+
+    <div class="layui-form-item">
+        <label class="layui-form-label">备注</label>
+        <div class="layui-input-block">
+            <textarea name="note" class="layui-textarea" placeholder="请输入备注" th:text="${competition.note }"></textarea>
+        </div>
+    </div>
+
+   <!-- <div class="layui-form-item">
+        <label class="layui-form-label">赛事配图：</label>
+        <div class="layui-input-inline">
+            <div class="layui-upload-list ">
+                <p id="demoText"></p>
+                <div style="height: 132px;">
+                    <img class="layui-upload-img" id="demo" style="width:100%;height: 100%">
+                </div>
+                <button type="button" id="photo" class="layui-btn">选择图片</button>
+            </div>
+            <input name="activity_photo" type="hidden" id="activity_photo" lay-verify="photo"/>
+            <button id="hideUpload" type="button" style="display: none"></button>
+        </div>
+    </div>-->
+
+    <div class="layui-form-item">
+        <div class="layui-input-block">
+            <button class="layui-btn" lay-submit="" lay-filter="updateCompetition">立即保存</button>
+        </div>
+    </div>
+</form>
+<script type="text/javascript" src="/layui/layui.js"></script>
+<script type="text/javascript" src="/js/competition/editCompetition.js"></script>
+</body>
+</html>

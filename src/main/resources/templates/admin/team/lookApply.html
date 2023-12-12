@@ -1,0 +1,77 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <link rel="stylesheet" href="/layui/css/layui.css">
+</head>
+<body>
+<!--审核不通过页面 查看报名信息页面-->
+<form class="layui-form" style="width: 80%;margin-top: 5%" id="applyForm">
+    <input type="hidden" name="id" id="id" th:value="${team.id }"/>
+    <input type="hidden" name="teamName" th:value="${team.teamName }"/>
+    <input type="hidden" name="projectName" th:value="${team.projectName }"/>
+    <input type="hidden" name="adviser" th:value="${team.adviser }"/>
+    <input type="hidden" name="competitionTitle" th:value="${team.competitionTitle }"/>
+
+    <div class="layui-form-item">
+        <label class="layui-form-label"></label>
+        团队名称：
+        <span th:text="${team.teamName }"></span>
+    </div>
+
+    <div class="layui-form-item">
+        <label class="layui-form-label"></label>
+        项目名称：
+        <span th:text="${team.projectName }"></span>
+    </div>
+
+    <div class="layui-form-item">
+        <label class="layui-form-label"></label>
+        成员：
+        <span th:text="${team.members }"></span>
+    </div>
+
+    <div class="layui-form-item">
+        <label class="layui-form-label"></label>
+        指导教师：
+        <span th:text="${team.adviser }"></span>
+    </div>
+
+
+    <div class="layui-form-item">
+        <label class="layui-form-label"></label>
+        概述：
+        <div th:text="${team.content }" style="width: 600px;margin-left: 160px;margin-top: -18px"></div>
+    </div>
+
+    <div class="layui-form-item">
+        <label class="layui-form-label"></label>
+        备注：
+        <span th:text="${team.note}"></span>
+    </div>
+
+    <div class="layui-form-item">
+        <label class="layui-form-label"></label>
+        赛事标题：
+        <span th:text="${team.competitionTitle}"></span>
+    </div>
+
+    <div class="layui-form-item" th:if="${team.status==3}">
+        <label class="layui-form-label"></label>
+        不通过原因：
+        <span th:text="${team.reason}" style="color: red"></span>
+    </div>
+
+    <div class="layui-form-item">
+        <div class="layui-input-block">
+            <button class="layui-btn layui-layer-btnYes" type="button" th:if="${team.status==1}">通过</button>
+            <button class="layui-btn layui-btn-danger layui-layer-btnNo" th:if="${team.status==1||team.status==2}" type="button">不通过
+            </button>
+            <button class="layui-btn layui-btn-normal layui-layer-btnReturn" type="button">返回</button>
+        </div>
+    </div>
+</form>
+<script type="text/javascript" src="/layui/layui.js"></script>
+<script type="text/javascript" src="/js/team/lookApply.js"></script>
+</body>
+</html>

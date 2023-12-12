@@ -1,0 +1,54 @@
+spring:
+    jackson:
+        date-format: yyyy-MM-dd
+        time-zone: GMT+8
+    datasource:
+        type: com.alibaba.druid.pool.DruidDataSource
+        driverClassName: com.mysql.cj.jdbc.Driver
+        druid:
+            url: jdbc:mysql://127.0.0.1:3306/product?useUnicode=true&useSSL=false&characterEncoding=UTF-8&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC&autoReconnect=true&failOverReadOnly=false
+            username: root
+            password: 12345678
+            # 初始连接数
+            initialSize: 5
+            # 最小连接池数量
+            minIdle: 10
+            # 最大连接池数量
+            maxActive: 20
+            # 配置获取连接等待超时的时间
+            maxWait: 60000
+            # 配置间隔多久才进行一次检测，检测需要关闭的空闲连接，单位是毫秒
+            timeBetweenEvictionRunsMillis: 60000
+            # 配置一个连接在池中最小生存的时间，单位是毫秒
+            minEvictableIdleTimeMillis: 300000
+            # 配置一个连接在池中最大生存的时间，单位是毫秒
+            maxEvictableIdleTimeMillis: 900000
+            # 配置检测连接是否有效
+            validationQuery: SELECT 1 FROM DUAL
+            testWhileIdle: true
+            testOnBorrow: false
+            testOnReturn: false
+
+    servlet:
+        multipart:
+            max-file-size: 20MB
+            max-request-size: 50MB
+    redis:
+        host: 127.0.0.1
+        port: 6379
+    thymeleaf:
+        cache: false
+        encoding: UTF-8
+        mode: HTML
+        prefix: classpath:/templates/
+        suffix: .html
+        servlet:
+            content-type: text/html
+    jpa:
+        show-sql: true
+
+mybatis:
+    mapperLocations: classpath:mapper/*Mapper.xml
+server:
+    port: 8081
+

@@ -1,0 +1,82 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <link rel="stylesheet" href="/layui/css/layui.css">
+</head>
+<body>
+<form class="layui-form" style="font-size: 18px;margin-top: 15px">
+    <input type="hidden" name="id" th:value="${competition.id }" id="id"/>
+    <div class="layui-form-item">
+        <label class="layui-form-label"></label>
+        标题：
+        <span th:text="${competition.title }"></span>
+    </div>
+    <div class="layui-form-item">
+        <label class="layui-form-label"></label>
+        类型：
+        <span th:if="${competition.deptId==401}" style="color: #da4b3f">web软件开发</span>
+        <span th:if="${competition.deptId==402}" style="color: #7a9dc0">物联网工程</span>
+        <span th:if="${competition.deptId==403}" style="color: #59a869">数学类</span>
+        <span th:if="${competition.deptId==404}" style="color: #f22952">语言类</span>
+        <span th:if="${competition.deptId==405}" style="color: #dd5044">心理知识类</span>
+        <span th:if="${competition.deptId==406}" style="color: #7a9dc0">物理类</span>
+        <span th:if="${competition.deptId==407}" style="color: #59a869">其他</span>
+    </div>
+    <div class="layui-form-item">
+        <label class="layui-form-label"></label>
+        发布者：
+        <span th:text="${competition.publisher }"></span>
+    </div>
+    <div class="layui-form-item">
+        <label class="layui-form-label"></label>
+        邮箱：
+        <span th:text="${competition.email }"></span>
+    </div>
+    <div class="layui-form-item">
+        <label class="layui-form-label"></label>
+        人数：
+        <span th:text="${competition.number }"></span>
+    </div>
+    <div class="layui-form-item">
+        <label class="layui-form-label"></label>
+        发布时间：
+        <span th:text="${#dates.format(competition.createTime,'yyyy年MM月dd日')}"></span>
+    </div>
+    <div class="layui-form-item">
+        <label class="layui-form-label"></label>
+        截止时间：
+        <span th:text="${#dates.format(competition.validTime,'yyyy年MM月dd日')}"></span>
+    </div>
+    <div class="layui-form-item">
+        <label class="layui-form-label"></label>
+        内容：
+        <div th:text="${competition.content }" style="width: 680px;margin-left: 160px;margin-top: -25px"></div>
+    </div>
+    <div class="layui-form-item">
+        <label class="layui-form-label"></label>
+        备注：
+        <span th:text="${competition.note }" style="color: #ff5722"></span>
+    </div>
+    <div class="layui-form-item">
+        <label class="layui-form-label"></label>
+        图片：
+        <span>
+            <img th:src="'/upload/'+${competition.activity_photo}" alt="" width="500" height="300" style="border-radius: 20px" />
+        </span>
+    </div>
+</form>
+<script type="text/javascript" src="/layui/layui.js"></script>
+<script type="text/javascript">
+    layui.use(['layer', 'jquery', 'table', 'laydate'], function () {
+    });
+</script>
+
+<script type="text/html" id="picImg">
+    <div>
+        <img src="{{d.activity_photo}}" alt="" onclick="showBigImage(this)" width="80px" height="45px">
+    </div>
+</script>
+
+</body>
+</html>

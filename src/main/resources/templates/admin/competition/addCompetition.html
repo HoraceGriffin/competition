@@ -1,0 +1,103 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <link rel="stylesheet" href="/layui/css/layui.css">
+</head>
+<body>
+<form class="layui-form" style="width: 90%;margin-top: 20px;" id="auf">
+    <div class="layui-form-item">
+        <label class="layui-form-label">标题</label>
+        <div class="layui-input-inline">
+            <input style="width: 501px" type="text" name="title" id="title" class="layui-input" lay-verify="required"
+                   placeholder="请输入标题" value="" autocomplete="off">
+        </div>
+    </div>
+    <div class="layui-form-item">
+        <label class="layui-form-label">发布者</label>
+        <div class="layui-input-inline">
+            <input type="text" name="publisher" id="publisher" class="layui-input" lay-verify="required"
+                   placeholder="请输入发布者姓名"
+                   value="" autocomplete="off">
+        </div>
+        <label class="layui-form-label">类别</label>
+        <div class="layui-input-inline">
+            <select name="deptId" lay-verify="required">
+                <option value="0">请选择类别</option>
+                <option value="401">web软件开发</option>
+                <option value="402">物联网工程</option>
+                <option value="403">数学类</option>
+                <option value="404">语言类</option>
+                <option value="405">心理知识类</option>
+                <option value="406">物理类</option>
+                <option value="407">其他</option>
+            </select>
+        </div>
+    </div>
+
+    <div class="layui-form-item">
+        <label class="layui-form-label">发布时间</label>
+        <div class="layui-input-inline">
+            <input type="text" name="createTime" id="createTime" class="layui-input" lay-verify="createTime"
+                   placeholder="请选择发布时间" value=""
+                   autocomplete="off">
+        </div>
+        <label class="layui-form-label">截止时间</label>
+        <div class="layui-input-inline">
+            <input type="text" id="validTime" class="layui-input" name="validTime" lay-verify="required"
+                   placeholder="请输入截止日期" autocomplete="off">
+        </div>
+    </div>
+    <div class="layui-form-item">
+        <label class="layui-form-label">邮箱</label>
+        <div class="layui-input-inline">
+            <input type="text" id="email" name="email" class="layui-input" lay-verify="email" placeholder="请输入邮箱"
+                   value="" autocomplete="off">
+        </div>
+
+
+        <label class="layui-form-label">人数</label>
+        <div class="layui-input-inline">
+            <input type="text" name="number" class="layui-input" lay-verify="number" placeholder="请输入人数" value=""
+                   autocomplete="off">
+        </div>
+
+    </div>
+    <div class="layui-form-item">
+        <label class="layui-form-label">内容</label>
+        <div class="layui-input-block">
+            <textarea name="content" class="layui-textarea" placeholder="请输入内容"></textarea>
+        </div>
+    </div>
+    <div class="layui-form-item">
+        <label class="layui-form-label">备注</label>
+        <div class="layui-input-block">
+            <textarea name="note" class="layui-textarea" placeholder="请输入备注"></textarea>
+        </div>
+    </div>
+
+    <div class="layui-form-item">
+        <label class="layui-form-label">赛事配图：</label>
+        <div class="layui-input-inline">
+            <div class="layui-upload-list ">
+                <p id="demoText"></p>
+                <div style="height: 132px;">
+                    <img class="layui-upload-img" id="demo" style="width:100%;height: 100%">
+                </div>
+                <button type="button" id="photo" class="layui-btn">选择图片</button>
+            </div>
+            <input name="activity_photo" type="hidden" id="activity_photo" lay-verify="photo"/>
+            <button id="hideUpload" type="button" style="display: none"></button>
+        </div>
+    </div>
+
+    <div class="layui-form-item">
+        <div class="layui-input-block">
+            <button class="layui-btn" lay-submit="" lay-filter="addCompetition">立即提交</button>
+        </div>
+    </div>
+</form>
+<script type="text/javascript" src="/layui/layui.js"></script>
+<script type="text/javascript" src="/js/competition/addCompetition.js"></script>
+</body>
+</html>
