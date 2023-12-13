@@ -1,6 +1,6 @@
 package com.zcxy.utils;
 
-import cn.com.sise.enums.ErrorCode;
+import com.zcxy.enums.ErrorCode;
 import org.springframework.http.HttpStatus;
 
 import java.io.Serializable;
