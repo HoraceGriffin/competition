@@ -1,5 +1,7 @@
 package com.zcxy.utils;
 
+import org.springframework.http.HttpStatus;
+
 import java.io.Serializable;
 
 public class ResultUtil implements Serializable {
@@ -57,28 +59,28 @@ public class ResultUtil implements Serializable {
     }
 
     public static ResultUtil ok() {
-        return new ResultUtil(0);
+        return new ResultUtil(HttpStatus.OK.value());
     }
 
-    public static ResultUtil ok(Object list) {
+    public static ResultUtil ok(Object obj) {
         ResultUtil result = new ResultUtil();
-        result.setCode(0);
-        result.setData(list);
+        result.setCode(HttpStatus.OK.value());
+        result.setData(obj);
         return result;
     }
 
     public static ResultUtil ok(String msg) {
         ResultUtil result = new ResultUtil();
-        result.setCode(0);
+        result.setCode(HttpStatus.OK.value());
         result.setMsg(msg);
         return result;
     }
 
     public static ResultUtil error() {
-        return new ResultUtil(500, "没有此权限，请联系管理员！");
+        return new ResultUtil(HttpStatus.INTERNAL_SERVER_ERROR.value(), "服务异常");
     }
 
-    public static ResultUtil error(String str) {
-        return new ResultUtil(500, str);
+    public static ResultUtil error(HttpStatus status, String str) {
+        return new ResultUtil(status.value(), str);
     }
 }
