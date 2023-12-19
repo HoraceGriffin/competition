@@ -7,6 +7,7 @@ import com.zcxy.service.AdminService;
 import com.zcxy.utils.MD5Util;
 import com.zcxy.utils.ResultUtil;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -38,10 +39,10 @@ public class LoginController {
                 session.setAttribute("admin", admin);
                 return ResultUtil.ok(admin);
             } else {
-                return ResultUtil.error("密码错误！");
+                return ResultUtil.error(HttpStatus.BAD_REQUEST, "密码错误！");
             }
         } else {
-            return ResultUtil.error("账号不存在！");
+            return ResultUtil.error(HttpStatus.BAD_REQUEST, "账号不存在！");
         }
     }
 

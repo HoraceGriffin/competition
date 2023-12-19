@@ -1,4 +1,6 @@
 spring:
+    main:
+        allow-circular-references: true
     jackson:
         date-format: yyyy-MM-dd
         time-zone: GMT+8
@@ -51,4 +53,7 @@ mybatis:
     mapperLocations: classpath:mapper/*Mapper.xml
 server:
     port: 8081
+file:
+    upload:
+        path: /Users/horacegriffin/Workspace/Storage/competition
 
