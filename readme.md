@@ -14,7 +14,7 @@
 
 ## 开始使用
 
- 	1.启动前，请配置`application.yml`中相关`redis`、`mysql`（创建好数据库product）
+​ 	1.启动前，请配置`application.yml`中相关`redis`、`mysql`（创建好数据库product）
 
 ​	 2.请使用数据管理工具如 `navicat` 执行项目下的`product.sql`
 
