@@ -20,7 +20,7 @@
 
 ​	 3.登录地址：http://localhost:8081/login
 
-​     4.默认管理员登入 `username: admin  password: 123456`
+​  4.默认管理员登入 `username: admin  password: 123456`
 
 ## 项目说明及截图
 
