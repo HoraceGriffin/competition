@@ -68,6 +68,7 @@ public class FileController {
     public ResultUtil getAvatar(@PathVariable("file_name") String filename) {
         byte[] bytes = FileUtil.readBytes(FILE_UPLOAD_PATH + "/avatar/" + filename);
         String encoded = Base64.getEncoder().encodeToString(bytes);
-        return ResultUtil.ok(encoded);
+
+        return ResultUtil.ok((Object) encoded);
     }
 }

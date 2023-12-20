@@ -7,7 +7,7 @@ import com.zcxy.entity.AdminSearch;
 import com.zcxy.service.AdminUsersService;
 import com.zcxy.utils.MD5Util;
 import com.zcxy.utils.ResultUtil;
-import org.springframework.beans.factory.annotation.Autowired;;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -16,6 +16,8 @@ import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpServletRequest;
 import java.util.List;
+
+;
 
 @RestController
 @RequestMapping("/adminUsers")
