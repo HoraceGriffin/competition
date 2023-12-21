@@ -15,11 +15,7 @@ import javax.servlet.http.HttpSession;
 import java.text.ParseException;
 import java.util.Map;
 
-/**
- * @author : Horace Leoi
- * @date : 2023/12/19
- * @remark :
- */
+
 @RestController
 public class LoginApiController {
 

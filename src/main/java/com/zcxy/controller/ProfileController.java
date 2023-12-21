@@ -11,11 +11,7 @@ import org.springframework.web.bind.annotation.*;
 import javax.annotation.Resource;
 import javax.servlet.http.HttpSession;
 
-/**
- * @author : Horace Leoi
- * @date : 2023/12/20
- * @remark :
- */
+
 @RestController
 @RequestMapping("/profile")
 public class ProfileController {

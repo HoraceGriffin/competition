@@ -21,11 +21,7 @@ import java.io.IOException;
 import java.util.Base64;
 import java.util.UUID;
 
-/**
- * @author : Horace Leoi
- * @date : 2023/12/19
- * @remark :
- */
+
 @RestController
 @RequestMapping("/file")
 public class FileController {

@@ -3,12 +3,7 @@ package com.zcxy.entity;
 import java.io.Serializable;
 import java.util.Date;
 
-/**
- * 
- *
- * @author guoshun
- * @date   2021/10/30
- */
+
 public class TbCollect implements Serializable {
     /**
      * 
