@@ -1,6 +1,5 @@
 package com.zcxy.controller;
 
-import cn.hutool.core.codec.Base64Encoder;
 import cn.hutool.core.io.FileUtil;
 import com.zcxy.entity.Admin;
 import com.zcxy.service.AdminService;
