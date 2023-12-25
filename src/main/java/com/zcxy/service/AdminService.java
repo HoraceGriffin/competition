@@ -27,7 +27,6 @@ public interface AdminService {
     /**
      * 修改管理员个人信息
      */
-    @Update("update tb_admin set nickname=#{nickname},sex=#{sex},phone=#{phone},email=#{email} where id=#{id}")
     int updateAdmin(Admin admin);
 
     /**
